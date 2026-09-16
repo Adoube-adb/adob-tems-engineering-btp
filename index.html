@@ -9,6 +9,24 @@
     <meta name="description"
           content="ADOB TEMS ENGINEERING BTP SARL intervient dans le bâtiment, les travaux publics, les prestations de services, l'import/export et le négoce au Cameroun.">
 
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================= -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DJR9NPG8E"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-4DJR9NPG8E');
+    </script>
+
     <style>
 
         :root {
@@ -1514,7 +1532,7 @@
             <a
                 href="https://wa.me/237677593104"
                 target="_blank"
-                class="button button-primary"
+                class="button button-primary whatsapp-link"
             >
                 Échanger sur WhatsApp
             </a>
@@ -1728,7 +1746,7 @@
                 <a
                     href="https://wa.me/237677593104"
                     target="_blank"
-                    class="whatsapp-button"
+                    class="whatsapp-button whatsapp-link"
                 >
                     Contacter ADOB sur WhatsApp
                 </a>
@@ -1774,11 +1792,32 @@
 <a
     href="https://wa.me/237677593104"
     target="_blank"
-    class="whatsapp-float"
+    class="whatsapp-float whatsapp-link"
     aria-label="Contacter ADOB sur WhatsApp"
 >
     WA
 </a>
+
+
+<!-- =========================
+     SUIVI DES CLICS WHATSAPP
+========================= -->
+
+<script>
+
+    document.querySelectorAll('.whatsapp-link').forEach(function(link) {
+
+        link.addEventListener('click', function() {
+
+            gtag('event', 'whatsapp_click', {
+                link_url: this.href
+            });
+
+        });
+
+    });
+
+</script>
 
 
 </body>
