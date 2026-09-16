@@ -4,35 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ADOB TEMS ENGINEERING BTP SARL</title>
+    <title>ADOB TEMS ENGINEERING BTP SARL | Bâtiment & Travaux Publics</title>
 
     <meta name="description"
-          content="ADOB TEMS ENGINEERING BTP SARL - Bâtiment, Travaux Publics, prestations de services, import/export et négoce au Cameroun.">
+          content="ADOB TEMS ENGINEERING BTP SARL intervient dans le bâtiment, les travaux publics, les prestations de services, l'import/export et le négoce au Cameroun.">
 
     <style>
+
+        :root {
+            --navy: #10283f;
+            --navy-dark: #091b2b;
+            --gold: #c69a3a;
+            --gold-light: #dfbd6c;
+            --text: #28323b;
+            --muted: #69737c;
+            --light: #f4f5f5;
+            --white: #ffffff;
+            --border: #e1e4e6;
+        }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            color: #222;
-            background: #ffffff;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.65;
         }
 
         img {
-            max-width: 100%;
             display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1160px, calc(100% - 40px));
+            margin: auto;
         }
 
         /* =========================
@@ -43,299 +63,447 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: #0b1f35;
-            color: #ffffff;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+            background: rgba(9, 27, 43, 0.98);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 15px 25px;
+        .nav {
+            min-height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 30px;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: 0.5px;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
         }
 
-        .logo span {
-            color: #d5a928;
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .brand-text {
+            line-height: 1.15;
+        }
+
+        .brand-name {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: .3px;
+        }
+
+        .brand-sub {
+            color: var(--gold-light);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
         }
 
         nav {
             display: flex;
-            gap: 22px;
-            flex-wrap: wrap;
-            justify-content: center;
+            align-items: center;
+            gap: 26px;
         }
 
         nav a {
-            color: #ffffff;
-            font-size: 14px;
+            color: #e9edf0;
+            font-size: 13px;
             font-weight: 600;
-            transition: 0.3s;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width .25s ease;
         }
 
         nav a:hover {
-            color: #d5a928;
+            color: white;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* =========================
-           ACCUEIL
+           HERO
         ========================= */
 
         .hero {
-            min-height: 560px;
-
+            min-height: 610px;
             background:
                 linear-gradient(
-                    rgba(5,20,35,0.92),
-                    rgba(5,20,35,0.84)
+                    105deg,
+                    rgba(7,24,39,.98) 0%,
+                    rgba(16,40,63,.94) 55%,
+                    rgba(16,40,63,.82) 100%
                 );
-
+            color: white;
             display: flex;
             align-items: center;
-            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-            text-align: center;
-            color: #ffffff;
-
-            padding: 80px 20px;
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -100px;
+            top: 80px;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(198,154,58,.18);
+            transform: rotate(45deg);
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 820px;
+            position: relative;
+            z-index: 2;
+            padding: 80px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold-light);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 35px;
+            height: 1px;
+            background: var(--gold);
         }
 
         .hero h1 {
-            font-size: 46px;
-            line-height: 1.15;
-            margin-bottom: 20px;
+            font-size: clamp(38px, 5vw, 64px);
+            line-height: 1.06;
+            letter-spacing: -1.5px;
+            font-weight: 700;
+            max-width: 850px;
+            margin-bottom: 25px;
         }
 
         .hero h1 span {
-            display: block;
-            color: #d5a928;
+            color: var(--gold-light);
         }
 
-        .hero p {
-            font-size: 19px;
-            max-width: 760px;
-            margin: 0 auto 30px;
-            color: #e8edf2;
+        .hero-text {
+            max-width: 680px;
+            font-size: 18px;
+            color: #d9e0e5;
+            margin-bottom: 34px;
         }
 
-        .hero-buttons {
+        .hero-actions {
             display: flex;
-            justify-content: center;
-            gap: 15px;
+            align-items: center;
+            gap: 18px;
             flex-wrap: wrap;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 13px 25px;
-            border-radius: 5px;
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 23px;
+            border-radius: 3px;
+            font-size: 13px;
             font-weight: 700;
-            transition: 0.3s;
+            transition: .25s ease;
         }
 
-        .btn-primary {
-            background: #d5a928;
-            color: #0b1f35;
+        .button-primary {
+            background: var(--gold);
+            color: var(--navy-dark);
         }
 
-        .btn-primary:hover {
-            background: #f0c64d;
+        .button-primary:hover {
+            background: var(--gold-light);
             transform: translateY(-2px);
         }
 
-        .btn-secondary {
-            border: 1px solid #ffffff;
-            color: #ffffff;
+        .button-outline {
+            border: 1px solid rgba(255,255,255,.45);
+            color: white;
         }
 
-        .btn-secondary:hover {
-            background: #ffffff;
-            color: #0b1f35;
-        }
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            padding: 80px 20px;
-        }
-
-        .container {
-            max-width: 1150px;
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            color: #0b1f35;
-            font-size: 34px;
-            margin-bottom: 12px;
-        }
-
-        .section-title .line {
-            width: 65px;
-            height: 4px;
-            background: #d5a928;
-            margin: auto;
-        }
-
-        .section-title p {
-            max-width: 750px;
-            margin: 18px auto 0;
-            color: #666666;
+        .button-outline:hover {
+            border-color: white;
+            background: rgba(255,255,255,.08);
         }
 
         /* =========================
-           PRESENTATION
+           INTRODUCTION
         ========================= */
 
-        .presentation {
-            background: #f7f8fa;
+        .intro {
+            padding: 85px 0;
+            background: white;
         }
 
-        .presentation-grid {
+        .intro-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
+            grid-template-columns: 1.25fr .75fr;
+            gap: 80px;
+            align-items: start;
         }
 
-        .presentation-text h3 {
-            font-size: 27px;
-            color: #0b1f35;
-            margin-bottom: 20px;
+        .small-label {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
-        .presentation-text p {
-            margin-bottom: 16px;
-            color: #555555;
+        .intro h2,
+        .section-heading h2 {
+            color: var(--navy);
+            font-size: clamp(30px, 4vw, 42px);
+            line-height: 1.15;
+            letter-spacing: -.6px;
+            margin-bottom: 23px;
         }
 
-        .company-box {
-            background: #0b1f35;
-            color: #ffffff;
-            padding: 30px;
-            border-left: 5px solid #d5a928;
-            border-radius: 4px;
+        .intro p {
+            color: #56616a;
+            margin-bottom: 17px;
+            font-size: 16px;
         }
 
-        .company-box h3 {
-            margin-bottom: 18px;
-            color: #d5a928;
+        .company-details {
+            border-left: 3px solid var(--gold);
+            padding-left: 25px;
         }
 
-        .company-box p {
-            margin-bottom: 8px;
-            color: #edf2f7;
+        .detail {
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .detail:last-child {
+            border-bottom: 0;
+        }
+
+        .detail-label {
+            color: var(--muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .detail-value {
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 700;
         }
 
         /* =========================
-           NOTRE SAVOIR-FAIRE
+           SAVOIR FAIRE
         ========================= */
+
+        .skills {
+            background: var(--light);
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin-bottom: 45px;
+        }
+
+        .section-heading.center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 16px;
+        }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
         }
 
-        .skill-card {
-            padding: 30px 25px;
-            background: #ffffff;
-            border: 1px solid #e4e7eb;
-            border-top: 4px solid #d5a928;
-            border-radius: 5px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+        .skill {
+            background: white;
+            padding: 31px 28px 34px;
+            min-height: 205px;
+            position: relative;
         }
 
-        .skill-card h3 {
-            color: #0b1f35;
-            font-size: 20px;
+        .skill-number {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        .skill h3 {
+            color: var(--navy);
+            font-size: 19px;
+            line-height: 1.25;
             margin-bottom: 12px;
         }
 
-        .skill-card p {
-            color: #666666;
-            font-size: 15px;
+        .skill p {
+            color: var(--muted);
+            font-size: 14px;
         }
 
         /* =========================
-           REALISATIONS
+           PROJETS
         ========================= */
 
         .projects {
-            background: #f7f8fa;
+            padding: 90px 0;
+            background: white;
+        }
+
+        .projects-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 42px;
+        }
+
+        .projects-header .section-heading {
+            margin-bottom: 0;
+        }
+
+        .project-note {
+            max-width: 330px;
+            color: var(--muted);
+            font-size: 13px;
+            border-left: 2px solid var(--gold);
+            padding-left: 18px;
         }
 
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            gap: 20px;
         }
 
         .gallery-item {
-            background: #ffffff;
-            border-radius: 6px;
+            background: white;
+            border: 1px solid var(--border);
             overflow: hidden;
-            box-shadow: 0 5px 16px rgba(0,0,0,0.09);
+            transition: transform .25s ease, box-shadow .25s ease;
         }
 
-        .gallery-item img {
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(16,40,63,.12);
+        }
+
+        .gallery-image {
+            overflow: hidden;
+            background: #e9ebed;
+        }
+
+        .gallery-image img {
             width: 100%;
-            height: 260px;
+            height: 245px;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform .4s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.04);
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.035);
         }
 
         .gallery-caption {
-            padding: 15px;
+            padding: 16px 18px 18px;
+        }
+
+        .gallery-caption span {
+            display: block;
+            color: var(--gold);
+            font-size: 10px;
             font-weight: 700;
-            color: #0b1f35;
-            font-size: 15px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .gallery-caption strong {
+            color: var(--navy);
+            font-size: 14px;
         }
 
         /* =========================
-           PARLONS DE VOTRE PROJET
+           BESOIN
         ========================= */
 
         .need {
-            background: #0b1f35;
-            color: #ffffff;
-            text-align: center;
+            background: var(--navy);
+            color: white;
+            padding: 75px 0;
+        }
+
+        .need-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .need-copy {
+            max-width: 730px;
+        }
+
+        .need .small-label {
+            color: var(--gold-light);
         }
 
         .need h2 {
-            font-size: 34px;
-            margin-bottom: 18px;
-            color: #ffffff;
+            font-size: clamp(29px, 4vw, 40px);
+            line-height: 1.15;
+            margin-bottom: 15px;
         }
 
         .need p {
-            max-width: 760px;
-            margin: 0 auto 30px;
-            color: #e5eaf0;
+            color: #cdd7df;
+            font-size: 15px;
         }
 
         /* =========================
@@ -343,31 +511,35 @@
         ========================= */
 
         .activities {
-            background: #ffffff;
+            padding: 85px 0;
+            background: var(--light);
         }
 
-        .activities-grid {
+        .activities-list {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .activity {
-            padding: 25px 20px;
-            background: #f7f8fa;
-            border-radius: 5px;
-            text-align: center;
+            padding: 32px 25px;
+            border-right: 1px solid var(--border);
+        }
+
+        .activity:last-child {
+            border-right: 0;
         }
 
         .activity h3 {
-            color: #0b1f35;
-            font-size: 18px;
+            color: var(--navy);
+            font-size: 17px;
             margin-bottom: 10px;
         }
 
         .activity p {
-            color: #666666;
-            font-size: 14px;
+            color: var(--muted);
+            font-size: 13px;
         }
 
         /* =========================
@@ -375,48 +547,91 @@
         ========================= */
 
         .contact {
-            background: #f7f8fa;
+            padding: 90px 0;
+            background: white;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 70px;
         }
 
-        .contact-box {
-            background: #ffffff;
-            padding: 35px;
-            border-radius: 5px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+        .contact-intro p {
+            color: var(--muted);
+            margin-bottom: 25px;
         }
 
-        .contact-box h3 {
-            color: #0b1f35;
-            margin-bottom: 20px;
-            font-size: 24px;
+        .contact-list {
+            margin-top: 30px;
         }
 
-        .contact-line {
+        .contact-item {
+            display: flex;
+            gap: 17px;
+            padding: 17px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .contact-item small {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .contact-item strong {
+            color: var(--navy);
+            font-size: 14px;
+            word-break: break-word;
+        }
+
+        .contact-card {
+            background: var(--navy);
+            padding: 45px;
+            color: white;
+        }
+
+        .contact-card h3 {
+            font-size: 25px;
+            line-height: 1.25;
             margin-bottom: 15px;
         }
 
-        .contact-line strong {
-            color: #0b1f35;
+        .contact-card p {
+            color: #cbd5dc;
+            font-size: 14px;
+            margin-bottom: 27px;
         }
 
-        .whatsapp {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 13px 22px;
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 22px;
             background: #25d366;
-            color: #ffffff;
-            border-radius: 5px;
+            color: white;
+            border-radius: 3px;
+            font-size: 13px;
             font-weight: 700;
         }
 
-        .whatsapp:hover {
-            opacity: 0.9;
+        .whatsapp-button:hover {
+            opacity: .9;
         }
 
         /* =========================
@@ -424,34 +639,71 @@
         ========================= */
 
         footer {
-            background: #071522;
-            color: #bfc8d2;
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 14px;
+            background: var(--navy-dark);
+            color: #aeb9c2;
+            padding: 27px 0;
+            font-size: 12px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
         }
 
         footer strong {
-            color: #ffffff;
+            color: white;
+        }
+
+        /* =========================
+           WHATSAPP FLOTTANT
+        ========================= */
+
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #25d366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 5px 18px rgba(0,0,0,.2);
+            z-index: 900;
+            transition: transform .2s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
         }
 
         /* =========================
            RESPONSIVE
         ========================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
 
-            .nav-container {
+            .nav {
+                padding: 14px 0;
                 flex-direction: column;
             }
 
-            .hero h1 {
-                font-size: 36px;
+            nav {
+                gap: 16px;
+                justify-content: center;
+                flex-wrap: wrap;
             }
 
-            .presentation-grid,
+            .intro-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 45px;
             }
 
             .skills-grid {
@@ -462,50 +714,88 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .activities-grid {
+            .activities-list {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .activity:nth-child(2) {
+                border-right: 0;
+            }
+
+            .activity:nth-child(-n+2) {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .projects-header {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .need-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 620px) {
 
-            nav {
-                gap: 12px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            section {
-                padding: 60px 15px;
+            .container {
+                width: min(100% - 28px, 1160px);
             }
 
             .hero {
-                min-height: 500px;
+                min-height: 560px;
+            }
+
+            .hero-content {
+                padding: 65px 0;
             }
 
             .hero h1 {
-                font-size: 30px;
+                font-size: 38px;
             }
 
-            .hero p {
+            .hero-text {
                 font-size: 16px;
             }
 
-            .section-title h2 {
-                font-size: 28px;
+            nav {
+                gap: 9px 14px;
+            }
+
+            nav a {
+                font-size: 11px;
             }
 
             .skills-grid,
             .gallery,
-            .activities-grid {
+            .activities-list {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-item img {
-                height: 250px;
+            .activity {
+                border-right: 0;
+                border-bottom: 1px solid var(--border);
             }
+
+            .activity:last-child {
+                border-bottom: 0;
+            }
+
+            .gallery-image img {
+                height: 240px;
+            }
+
+            .contact-card {
+                padding: 30px 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
         }
 
     </style>
@@ -513,17 +803,35 @@
 
 <body>
 
+
 <!-- =========================
      HEADER
 ========================= -->
 
 <header>
 
-    <div class="nav-container">
+    <div class="container nav">
 
-        <div class="logo">
-            ADOB TEMS <span>ENGINEERING BTP</span>
-        </div>
+        <a href="#accueil" class="brand">
+
+            <div class="brand-mark">
+                ATE
+            </div>
+
+            <div class="brand-text">
+
+                <div class="brand-name">
+                    ADOB TEMS ENGINEERING
+                </div>
+
+                <div class="brand-sub">
+                    BTP SARL
+                </div>
+
+            </div>
+
+        </a>
+
 
         <nav>
 
@@ -532,15 +840,15 @@
             </a>
 
             <a href="#savoir-faire">
-                Notre savoir-faire
+                Savoir-faire
             </a>
 
             <a href="#realisations">
-                Réalisations et projets
+                Réalisations
             </a>
 
             <a href="#besoin">
-                Parlons de votre projet
+                Votre projet
             </a>
 
             <a href="#contact">
@@ -558,35 +866,45 @@
      ACCUEIL
 ========================= -->
 
-<section class="hero">
+<section id="accueil" class="hero">
 
-    <div class="hero-content">
+    <div class="container">
 
-        <h1>
-            ADOB TEMS
-            <span>ENGINEERING BTP SARL</span>
-        </h1>
+        <div class="hero-content">
 
-        <p>
-            Bâtiment, Travaux Publics, prestations de services,
-            import/export et négoce.
-        </p>
+            <div class="eyebrow">
+                Bâtiment · Génie civil · Travaux publics
+            </div>
 
-        <div class="hero-buttons">
+            <h1>
+                Construire avec
+                <span>méthode et précision.</span>
+            </h1>
 
-            <a
-                href="#realisations"
-                class="btn btn-primary"
-            >
-                Découvrir nos réalisations
-            </a>
+            <p class="hero-text">
+                ADOB TEMS ENGINEERING BTP SARL accompagne les projets
+                de construction et d'infrastructure, de la conception
+                aux travaux, avec une approche adaptée aux réalités
+                du terrain.
+            </p>
 
-            <a
-                href="#contact"
-                class="btn btn-secondary"
-            >
-                Nous contacter
-            </a>
+            <div class="hero-actions">
+
+                <a
+                    href="#realisations"
+                    class="button button-primary"
+                >
+                    Voir nos réalisations
+                </a>
+
+                <a
+                    href="#contact"
+                    class="button button-outline"
+                >
+                    Prendre contact
+                </a>
+
+            </div>
 
         </div>
 
@@ -599,77 +917,99 @@
      PRESENTATION
 ========================= -->
 
-<section
-    id="presentation"
-    class="presentation"
->
+<section id="presentation" class="intro">
 
     <div class="container">
 
-        <div class="section-title">
-
-            <h2>
-                Présentation
-            </h2>
-
-            <div class="line"></div>
-
-        </div>
+        <div class="intro-grid">
 
 
-        <div class="presentation-grid">
+            <div>
 
+                <div class="small-label">
+                    L'entreprise
+                </div>
 
-            <div class="presentation-text">
-
-                <h3>
-                    ADOB TEMS ENGINEERING BTP SARL
-                </h3>
+                <h2>
+                    Une structure BTP tournée vers les besoins du terrain
+                </h2>
 
                 <p>
-                    ADOB TEMS ENGINEERING BTP SARL intervient
-                    dans les domaines du bâtiment et des travaux
-                    publics ainsi que dans les prestations de
-                    services, l'import/export et le négoce.
+                    ADOB TEMS ENGINEERING BTP SARL intervient dans
+                    le secteur du bâtiment et des travaux publics,
+                    ainsi que dans les prestations de services,
+                    l'import/export et le négoce.
                 </p>
 
                 <p>
-                    Notre approche repose sur une préparation
-                    rigoureuse des projets, une organisation adaptée
-                    aux contraintes du chantier et une attention
-                    particulière portée à la qualité d'exécution.
+                    Notre travail s'appuie sur une préparation
+                    technique rigoureuse, une bonne compréhension
+                    des contraintes du chantier et la recherche
+                    de solutions adaptées à chaque opération.
                 </p>
 
                 <p>
-                    Nous accompagnons les particuliers, entreprises,
-                    promoteurs et partenaires professionnels selon
-                    les besoins spécifiques de leurs projets.
+                    Nous pouvons intervenir dans le cadre de projets
+                    de construction, d'études, de travaux ou de
+                    prestations pour des particuliers, entreprises
+                    et partenaires professionnels.
                 </p>
 
             </div>
 
 
-            <div class="company-box">
+            <div class="company-details">
 
-                <h3>
-                    Nos domaines d'activité
-                </h3>
+                <div class="detail">
 
-                <p>
-                    • Prestations de services
-                </p>
+                    <div class="detail-label">
+                        Raison sociale
+                    </div>
 
-                <p>
-                    • Import / export
-                </p>
+                    <div class="detail-value">
+                        ADOB TEMS ENGINEERING BTP SARL
+                    </div>
 
-                <p>
-                    • Bâtiment et travaux publics
-                </p>
+                </div>
 
-                <p>
-                    • Négoce
-                </p>
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        Registre de commerce
+                    </div>
+
+                    <div class="detail-value">
+                        RC/YAO/2021/B/1911
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        Secteurs d'intervention
+                    </div>
+
+                    <div class="detail-value">
+                        Bâtiment · Travaux publics
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        Activités complémentaires
+                    </div>
+
+                    <div class="detail-value">
+                        Prestations · Import/Export · Négoce
+                    </div>
+
+                </div>
 
             </div>
 
@@ -681,25 +1021,26 @@
 
 
 <!-- =========================
-     NOTRE SAVOIR-FAIRE
+     SAVOIR-FAIRE
 ========================= -->
 
-<section id="savoir-faire">
+<section id="savoir-faire" class="skills">
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading">
+
+            <div class="small-label">
+                Compétences
+            </div>
 
             <h2>
                 Notre savoir-faire
             </h2>
 
-            <div class="line"></div>
-
             <p>
-                Des compétences mobilisables pour accompagner
-                les différentes phases d'un projet de construction
-                et d'infrastructure.
+                Des compétences techniques mobilisables selon
+                la nature et les exigences de chaque projet.
             </p>
 
         </div>
@@ -708,104 +1049,115 @@
         <div class="skills-grid">
 
 
-            <!-- CONCEPTION ARCHITECTURALE -->
+            <div class="skill">
 
-            <div class="skill-card">
+                <div class="skill-number">
+                    01
+                </div>
 
                 <h3>
                     Conception architecturale
                 </h3>
 
                 <p>
-                    Conception et organisation des espaces en fonction
-                    des besoins du projet, des contraintes du site
-                    et des exigences fonctionnelles.
+                    Organisation des espaces, conception des
+                    solutions architecturales et adaptation
+                    du projet aux besoins du maître d'ouvrage.
                 </p>
 
             </div>
 
 
-            <!-- CALCUL STRUCTURES MIXTES -->
+            <div class="skill">
 
-            <div class="skill-card">
+                <div class="skill-number">
+                    02
+                </div>
 
                 <h3>
                     Calcul des structures mixtes
                 </h3>
 
                 <p>
-                    Étude et dimensionnement des structures associant
-                    différents matériaux et systèmes constructifs,
-                    avec prise en compte des charges et des exigences
-                    de stabilité.
+                    Étude et dimensionnement de structures
+                    associant différents matériaux et systèmes
+                    constructifs, avec prise en compte des charges
+                    et de la stabilité.
                 </p>
 
             </div>
 
 
-            <!-- BATIMENT -->
+            <div class="skill">
 
-            <div class="skill-card">
+                <div class="skill-number">
+                    03
+                </div>
 
                 <h3>
                     Bâtiment
                 </h3>
 
                 <p>
-                    Construction, gros œuvre, second œuvre et
-                    interventions techniques liées aux ouvrages
-                    de bâtiment.
+                    Travaux de construction, gros œuvre,
+                    second œuvre et interventions techniques
+                    sur les ouvrages de bâtiment.
                 </p>
 
             </div>
 
 
-            <!-- TRAVAUX PUBLICS -->
+            <div class="skill">
 
-            <div class="skill-card">
+                <div class="skill-number">
+                    04
+                </div>
 
                 <h3>
                     Travaux publics
                 </h3>
 
                 <p>
-                    Intervention sur les ouvrages et travaux
-                    d'infrastructures, terrassements et différents
-                    travaux liés aux projets de génie civil.
+                    Terrassements, ouvrages de génie civil
+                    et travaux liés aux infrastructures.
                 </p>
 
             </div>
 
 
-            <!-- ETUDES -->
+            <div class="skill">
 
-            <div class="skill-card">
+                <div class="skill-number">
+                    05
+                </div>
 
                 <h3>
                     Études et préparation
                 </h3>
 
                 <p>
-                    Analyse des besoins, préparation technique,
-                    organisation des interventions et accompagnement
-                    dans la préparation des travaux.
+                    Analyse des besoins, préparation technique
+                    et organisation des interventions avant
+                    et pendant les travaux.
                 </p>
 
             </div>
 
 
-            <!-- PRESTATIONS -->
+            <div class="skill">
 
-            <div class="skill-card">
+                <div class="skill-number">
+                    06
+                </div>
 
                 <h3>
                     Prestations et négoce
                 </h3>
 
                 <p>
-                    Fourniture de prestations, recherche de solutions
-                    adaptées et opérations de négoce en fonction des
-                    besoins des clients et partenaires.
+                    Prestations de services, recherche de solutions,
+                    fourniture et opérations de négoce selon
+                    les besoins des clients et partenaires.
                 </p>
 
             </div>
@@ -819,30 +1171,38 @@
 
 
 <!-- =========================
-     REALISATIONS ET PROJETS
+     REALISATIONS
 ========================= -->
 
-<section
-    id="realisations"
-    class="projects"
->
+<section id="realisations" class="projects">
 
     <div class="container">
 
+        <div class="projects-header">
 
-        <div class="section-title">
+            <div class="section-heading">
 
-            <h2>
-                Réalisations et projets
-            </h2>
+                <div class="small-label">
+                    Terrain
+                </div>
 
-            <div class="line"></div>
+                <h2>
+                    Réalisations et projets
+                </h2>
 
-            <p>
-                Quelques images de travaux, d'interventions
-                techniques et de projets illustrant notre
-                savoir-faire.
-            </p>
+                <p>
+                    Quelques vues de travaux et de projets
+                    permettant d'apprécier concrètement
+                    notre environnement d'intervention.
+                </p>
+
+            </div>
+
+
+            <div class="project-note">
+                Les images présentées correspondent à des travaux,
+                interventions et projets liés à notre activité.
+            </div>
 
         </div>
 
@@ -850,177 +1210,265 @@
         <div class="gallery">
 
 
-            <!-- 01 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="chantier-01.jpg"
-                    alt="Chantier ADOB TEMS ENGINEERING BTP"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="chantier-01.jpg"
+                        alt="Chantier de construction"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Chantier – travaux de construction
+
+                    <span>Chantier</span>
+
+                    <strong>
+                        Travaux de construction
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 02 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="chantier-02.jpg"
-                    alt="Chantier ADOB TEMS ENGINEERING BTP"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="chantier-02.jpg"
+                        alt="Travaux sur chantier"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Chantier – travaux en cours
+
+                    <span>Chantier</span>
+
+                    <strong>
+                        Travaux en cours
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 03 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="Batiment R+4-Yaoundé.jpg"
-                    alt="Bâtiment R+4 à Yaoundé"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="Batiment R+4-Yaoundé.jpg"
+                        alt="Bâtiment R+4 Yaoundé"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Bâtiment R+4 – Yaoundé
+
+                    <span>Bâtiment</span>
+
+                    <strong>
+                        Bâtiment R+4 – Yaoundé
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 04 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="Batiment R+4-Yaoundé-Façade arrière.jpg"
-                    alt="Bâtiment R+4 à Yaoundé – façade arrière"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="Batiment R+4-Yaoundé-Façade arrière.jpg"
+                        alt="Façade arrière bâtiment R+4 Yaoundé"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Bâtiment R+4 – façade arrière
+
+                    <span>Bâtiment</span>
+
+                    <strong>
+                        Façade arrière – R+4
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 05 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="Déroctage pour culée pont.jpg"
-                    alt="Déroctage pour culée de pont"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="Déroctage pour culée pont.jpg"
+                        alt="Déroctage pour culée de pont"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Déroctage pour culée de pont
+
+                    <span>Génie civil</span>
+
+                    <strong>
+                        Déroctage pour culée de pont
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 06 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="Etanchéité sur Chéneau.jpg"
-                    alt="Étanchéité sur chéneau"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="Etanchéité sur Chéneau.jpg"
+                        alt="Travaux d'étanchéité sur chéneau"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Étanchéité sur chéneau
+
+                    <span>Technique</span>
+
+                    <strong>
+                        Étanchéité sur chéneau
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 07 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="Exposition du gros oeuvre.jpg"
-                    alt="Exposition du gros œuvre"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="Exposition du gros oeuvre.jpg"
+                        alt="Exposition du gros œuvre"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Exposition du gros œuvre
+
+                    <span>Bâtiment</span>
+
+                    <strong>
+                        Gros œuvre
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 08 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="Implantation de la culée du pont.jpg"
-                    alt="Implantation de la culée du pont"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="Implantation de la culée du pont.jpg"
+                        alt="Implantation de culée de pont"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Implantation de la culée du pont
+
+                    <span>Génie civil</span>
+
+                    <strong>
+                        Implantation de culée
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 09 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="Tribune Abong-Mbang.jpg"
-                    alt="Tribune Abong-Mbang"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="Tribune Abong-Mbang.jpg"
+                        alt="Tribune Abong-Mbang"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Tribune – Abong-Mbang
+
+                    <span>Ouvrage</span>
+
+                    <strong>
+                        Tribune – Abong-Mbang
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 10 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="Planche 1.jpg"
-                    alt="Planche de présentation de projet ADOB"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="Planche 1.jpg"
+                        alt="Planche de projet"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Projet – Planche 1
+
+                    <span>Projet</span>
+
+                    <strong>
+                        Étude et présentation – Planche 1
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 11 -->
-
             <div class="gallery-item">
 
-                <img
-                    src="Planche 2.jpg"
-                    alt="Planche de présentation de projet ADOB"
-                >
+                <div class="gallery-image">
+
+                    <img
+                        src="Planche 2.jpg"
+                        alt="Planche de projet"
+                    >
+
+                </div>
 
                 <div class="gallery-caption">
-                    Projet – Planche 2
+
+                    <span>Projet</span>
+
+                    <strong>
+                        Étude et présentation – Planche 2
+                    </strong>
+
                 </div>
 
             </div>
@@ -1037,31 +1485,41 @@
      PARLONS DE VOTRE PROJET
 ========================= -->
 
-<section
-    id="besoin"
-    class="need"
->
+<section id="besoin" class="need">
 
     <div class="container">
 
-        <h2>
-            Parlons de votre projet
-        </h2>
+        <div class="need-inner">
 
-        <p>
-            Vous avez un projet de construction, de travaux publics,
-            une étude technique, une prestation de services ou un
-            besoin spécifique ? Échangeons sur vos besoins et les
-            solutions adaptées à votre projet.
-        </p>
+            <div class="need-copy">
 
-        <a
-            href="https://wa.me/237677593104"
-            target="_blank"
-            class="btn btn-primary"
-        >
-            Nous contacter sur WhatsApp
-        </a>
+                <div class="small-label">
+                    Votre besoin
+                </div>
+
+                <h2>
+                    Parlons de votre projet.
+                </h2>
+
+                <p>
+                    Construction, étude technique, travaux publics,
+                    prestation ou besoin spécifique : présentez-nous
+                    votre projet et nous échangerons sur les possibilités
+                    d'intervention.
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://wa.me/237677593104"
+                target="_blank"
+                class="button button-primary"
+            >
+                Échanger sur WhatsApp
+            </a>
+
+        </div>
 
     </div>
 
@@ -1076,18 +1534,20 @@
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="section-heading center">
+
+            <div class="small-label">
+                Domaines d'activité
+            </div>
 
             <h2>
-                Nos activités
+                Ce que nous faisons
             </h2>
-
-            <div class="line"></div>
 
         </div>
 
 
-        <div class="activities-grid">
+        <div class="activities-list">
 
 
             <div class="activity">
@@ -1111,8 +1571,8 @@
                 </h3>
 
                 <p>
-                    Ouvrages, terrassements et travaux
-                    d'infrastructures.
+                    Travaux de génie civil, infrastructures
+                    et interventions sur ouvrages.
                 </p>
 
             </div>
@@ -1125,8 +1585,8 @@
                 </h3>
 
                 <p>
-                    Prestations techniques et accompagnement
-                    selon les besoins du client.
+                    Prestations techniques et services adaptés
+                    aux besoins des clients.
                 </p>
 
             </div>
@@ -1139,8 +1599,8 @@
                 </h3>
 
                 <p>
-                    Recherche, fourniture et opérations
-                    commerciales adaptées aux besoins.
+                    Fourniture, recherche de produits et
+                    opérations commerciales.
                 </p>
 
             </div>
@@ -1157,105 +1617,121 @@
      CONTACT
 ========================= -->
 
-<section
-    id="contact"
-    class="contact"
->
+<section id="contact" class="contact">
 
     <div class="container">
-
-        <div class="section-title">
-
-            <h2>
-                Contact
-            </h2>
-
-            <div class="line"></div>
-
-            <p>
-                Pour toute demande d'information, de prestation
-                ou de collaboration, contactez directement
-                ADOB TEMS ENGINEERING BTP SARL.
-            </p>
-
-        </div>
-
 
         <div class="contact-grid">
 
 
-            <div class="contact-box">
+            <div class="contact-intro">
 
-                <h3>
-                    ADOB TEMS ENGINEERING BTP SARL
-                </h3>
-
-                <div class="contact-line">
-
-                    <strong>
-                        WhatsApp :
-                    </strong>
-
-                    +237 677 593 104
-
+                <div class="small-label">
+                    Contact
                 </div>
 
+                <h2>
+                    Échangeons directement.
+                </h2>
 
-                <div class="contact-line">
+                <p>
+                    Pour une demande de renseignement, une prestation,
+                    une étude ou une collaboration, vous pouvez nous
+                    contacter directement.
+                </p>
 
-                    <strong>
-                        Email :
-                    </strong>
 
-                    Info_adobtemsebtp@gmail.com
+                <div class="contact-list">
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            WA
+                        </div>
+
+                        <div>
+
+                            <small>
+                                WhatsApp
+                            </small>
+
+                            <strong>
+                                +237 677 593 104
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            @
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Email
+                            </small>
+
+                            <strong>
+                                Info_adobtemsebtp@gmail.com
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            RC
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Registre de commerce
+                            </small>
+
+                            <strong>
+                                RC/YAO/2021/B/1911
+                            </strong>
+
+                        </div>
+
+                    </div>
+
 
                 </div>
-
-
-                <div class="contact-line">
-
-                    <strong>
-                        Activités :
-                    </strong>
-
-                    Bâtiment et Travaux Publics,
-                    prestations de services,
-                    import/export et négoce.
-
-                </div>
-
-
-                <a
-                    href="https://wa.me/237677593104"
-                    target="_blank"
-                    class="whatsapp"
-                >
-                    Écrire sur WhatsApp
-                </a>
 
             </div>
 
 
-            <div class="contact-box">
+            <div class="contact-card">
 
                 <h3>
-                    Collaborons
+                    Un projet à étudier ?
                 </h3>
 
                 <p>
-                    ADOB TEMS ENGINEERING BTP SARL est disponible
-                    pour étudier les besoins de particuliers,
-                    entreprises, promoteurs, maîtres d'ouvrage
-                    et partenaires professionnels.
+                    Envoyez-nous quelques informations sur votre
+                    besoin. Nous pourrons échanger directement
+                    sur la nature du projet et les possibilités
+                    d'intervention d'ADOB TEMS ENGINEERING BTP SARL.
                 </p>
 
-                <br>
-
-                <p>
-                    Pour une demande de devis, une prestation,
-                    une étude technique ou une collaboration,
-                    contactez-nous directement.
-                </p>
+                <a
+                    href="https://wa.me/237677593104"
+                    target="_blank"
+                    class="whatsapp-button"
+                >
+                    Contacter ADOB sur WhatsApp
+                </a>
 
             </div>
 
@@ -1273,16 +1749,36 @@
 
 <footer>
 
-    <p>
-        © 2026
-        <strong>
-            ADOB TEMS ENGINEERING BTP SARL
-        </strong>
-        — Bâtiment, Travaux Publics, prestations de services,
-        import/export et négoce.
-    </p>
+    <div class="container footer-inner">
+
+        <div>
+            © 2026
+            <strong>
+                ADOB TEMS ENGINEERING BTP SARL
+            </strong>
+        </div>
+
+        <div>
+            Bâtiment · Travaux publics · Services · Import/Export · Négoce
+        </div>
+
+    </div>
 
 </footer>
+
+
+<!-- =========================
+     WHATSAPP FLOTTANT
+========================= -->
+
+<a
+    href="https://wa.me/237677593104"
+    target="_blank"
+    class="whatsapp-float"
+    aria-label="Contacter ADOB sur WhatsApp"
+>
+    WA
+</a>
 
 
 </body>
